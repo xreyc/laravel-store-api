@@ -9,9 +9,17 @@ class ProductPackage extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'price'];
+    // Fillable properties for mass assignment
+    protected $fillable = [
+        'product_id',    // Foreign key for product
+        'price',         // Price of the package
+        'description',   // Description of the package
+        'duration',      // Duration or term of the package (if applicable)
+        // Add other fields as necessary
+    ];
 
-    public function products() {
-        return $this->belongsToMany(Product::class);
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
     }
 }
