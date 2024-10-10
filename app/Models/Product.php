@@ -11,15 +11,13 @@ class Product extends Model
 
     // Fillable properties for mass assignment
     protected $fillable = [
-        'name',         // Product name
-        'description',  // Product description
-        'price',        // Product price
-        'category_id',  // Foreign key for category
-        'user_id',      // Foreign key for user
-        'stock',        // Product stock quantity
-        'sku',          // Stock keeping unit
-        'image_url',    // Main product image URL
-        // Add other fields as necessary
+        'name',
+        'description',
+        'price',
+        'sku',
+        'stock',
+        'category_id',
+        'user_id',
     ];
 
     public function images()
@@ -34,7 +32,7 @@ class Product extends Model
 
     public function tags()
     {
-        return $this->belongsToMany(Tag::class, 'product_tag');
+        return $this->belongsToMany(Tag::class);
     }
 
     public function category()
@@ -42,8 +40,8 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function orders()
+    public function user()
     {
-        return $this->hasMany(Order::class);
+        return $this->belongsTo(User::class);
     }
 }

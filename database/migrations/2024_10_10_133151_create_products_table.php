@@ -12,16 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id(); // Auto-incrementing ID
-            $table->string('name'); // Product name
-            $table->text('description')->nullable(); // Product description
-            $table->decimal('price', 10, 2); // Product price
-            $table->foreignId('category_id')->constrained()->onDelete('cascade'); // Foreign key for category
-            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Foreign key for user
+            $table->id();
+            $table->string('name'); // Name of the product
+            $table->text('description')->nullable(); // Description of the product
+            $table->decimal('price', 10, 2); // Price of the product
+            $table->string('sku')->unique(); // Stock Keeping Unit
             $table->integer('stock')->default(0); // Stock quantity
-            $table->string('sku')->unique(); // Unique stock keeping unit
-            $table->string('image_url')->nullable(); // Main product image URL
-            $table->timestamps(); // Created at and updated at timestamps
+            $table->foreignId('category_id')->constrained()->onDelete('cascade'); // Foreign key to categories
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Foreign key to users
+            $table->timestamps();
         });
     }
 
