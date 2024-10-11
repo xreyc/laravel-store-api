@@ -92,6 +92,22 @@ Route::delete('/delete_by_id/{id}', [StoreController::class, 'destroy']);
  * DELETE       /api/delete_by_id/{id}    destroy: Delete a specific store.
  */
 
+
+/** NAMING ROUTE */
+/**
+ * If we give a name to specific route we can access it using the route() method
+ * example route('nameofroute') this will return the url of the route ex: http://localhost:8000/api/xx
+ */
+Route::get('/get_all_products', [ProductController::class, 'index'])->name('products.list');
+Route::get('/get_all_product_route', function () {
+    return response()->json(['data' => route('products.list')]);
+});
+/**
+ * http://localhost:8000/api/get_all_products  -> will return all products
+ * http://localhost:8000/api/get_all_product_route -> will return http://localhost:8000/api/get_all_products
+ */
+
+
 /************************** PRIVATE ROUTES **************************/
 /**
  * For adding laravel/passport authentication check this url
