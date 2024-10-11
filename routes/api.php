@@ -99,5 +99,8 @@ Route::delete('/delete_by_id/{id}', [StoreController::class, 'destroy']);
  * https://medium.com/@is.sindiga/getting-started-with-laravel-authentication-using-passport-b77838bdc0fd
  */
 Route::middleware('auth:api')->group(function () {
-    Route::apiResource('stores', StoreController::class);
+    Route::group(['prefix' => 'private'], function () {
+        Route::apiResource('stores', StoreController::class);
+        Route::apiResource('stores', ProductController::class);
+    });
 });
