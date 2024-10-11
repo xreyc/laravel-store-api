@@ -15,7 +15,7 @@ class ProductController extends Controller
             'category:id,name,description', // specify field to query
             'images:id,product_id,image_url', // make sure the relationship reference id is included: product_id
             'packages',
-            'tags'
+            'productTags.tag'
         ])->get(); // Include relationships if needed
         return response()->json($products);
     }

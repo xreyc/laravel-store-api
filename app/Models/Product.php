@@ -39,8 +39,13 @@ class Product extends Model
         return $this->hasMany(ProductPackage::class);
     }
 
+    public function productTags()
+    {
+        return $this->hasMany(ProductTag::class);
+    }
+
     public function tags()
     {
-        return $this->belongsToMany(Tag::class, 'product_tags');
+        return $this->hasManyThrough(Tag::class, ProductTag::class);
     }
 }
