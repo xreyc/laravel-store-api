@@ -106,6 +106,52 @@ php artisan migrate:refresh --seed
 ## GETTING DATA FROM REQUEST
 Certainly! Here are separate examples for accessing different types of data from the `$request` object in Laravel without including the whole controller.
 
+### Example Controller Method
+
+```php
+use Illuminate\Http\Request;
+
+class ExampleController extends Controller
+{
+    public function handleRequest(Request $request, $id)
+    {
+        // 1. **Route Parameters**: Accessing route parameters
+        // Assuming the route is defined as: Route::get('/example/{id}', [ExampleController::class, 'handleRequest']);
+        $routeParam = $id; // Accessing the route parameter directly
+
+        // 2. **Query Parameters**: Accessing query parameters from the URL
+        // Example: /example?id=123&filter=active
+        $queryParamId = $request->query('id'); // Get 'id' from query string
+        $filter = $request->query('filter'); // Get 'filter' from query string
+
+        // 3. **Request Body (Form Data)**: Accessing form data sent in the request body
+        // Example: Form submission with fields 'name' and 'email'
+        $name = $request->input('name'); // Get 'name' from form data
+        $email = $request->input('email'); // Get 'email' from form data
+
+        // 4. **Retrieving All Input Data**: Getting all input data
+        $allData = $request->all(); // Get all data from both form and query
+
+        // 5. **Retrieving JSON Data**: Accessing JSON data if the request is JSON
+        // Assuming a JSON payload like: { "key": "value" }
+        $jsonValue = $request->json('key'); // Get a specific key from JSON
+        $allJsonData = $request->json()->all(); // Get all JSON data
+
+        // Example response
+        return response()->json([
+            'route_param' => $routeParam,
+            'query_param_id' => $queryParamId,
+            'filter' => $filter,
+            'name' => $name,
+            'email' => $email,
+            'all_data' => $allData,
+            'json_value' => $jsonValue,
+            'all_json_data' => $allJsonData,
+        ]);
+    }
+}
+```
+
 ### 1. Accessing Route Parameters
 
 ```php
