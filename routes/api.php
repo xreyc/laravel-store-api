@@ -97,10 +97,24 @@ Route::delete('/delete_by_id/{id}', [StoreController::class, 'destroy']);
  * For adding laravel/passport authentication check this url
  * https://laravel.com/docs/11.x/passport
  * https://medium.com/@is.sindiga/getting-started-with-laravel-authentication-using-passport-b77838bdc0fd
+ * 
+ * Header: Authorization: Bearer {Token}
  */
 Route::middleware('auth:api')->group(function () {
     Route::group(['prefix' => 'private'], function () {
         Route::apiResource('stores', StoreController::class);
-        Route::apiResource('stores', ProductController::class);
+        Route::apiResource('products', ProductController::class);
     });
 });
+/**
+ * GET          /api/private/stores         index: List all stores.
+ * POST         /api/private/stores         store: Create a new store.
+ * GET          /api/private/stores/{id}    show: Show a specific store.
+ * PUT/PATCH    /api/private/stores/{id}    update: Update a specific store.
+ * DELETE       /api/private/stores/{id}    destroy: Delete a specific store.
+ * GET          /api/private/products         index: List all stores.
+ * POST         /api/private/products         store: Create a new store.
+ * GET          /api/private/products/{id}    show: Show a specific store.
+ * PUT/PATCH    /api/private/products/{id}    update: Update a specific store.
+ * DELETE       /api/private/products/{id}    destroy: Delete a specific store.
+ */
