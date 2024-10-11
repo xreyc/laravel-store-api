@@ -22,5 +22,18 @@ class DatabaseSeeder extends Seeder
 
         // Register seeder here
         $this->call(UserSeeder::class);
+        $this->call([
+            TagSeeder::class,
+            CategorySeeder::class,
+            StoreSeeder::class,
+            EmployeeSeeder::class,
+            ProductSeeder::class,
+            ProductImageSeeder::class,
+            ProductPackageSeeder::class,
+            ProductTagSeeder::class,
+            OrderSeeder::class,
+            OrderLineItemSeeder::class,
+            PaymentSeeder::class,
+        ]);
     }
 }
