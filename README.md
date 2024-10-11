@@ -1,6 +1,7 @@
 # CREATING A STORE API
+---
 
-## Setup
+## SETUP
 1. Install dependencies
 ```bash
 composer install
@@ -36,7 +37,7 @@ php artisan db:seed
 php artisan passport:client --personal
 ```
 
-## Files
+## FILES
 1. Models are located at app/Models
 2. Migrations are located at database/migrations
 3. Seeders are located at database/seeders
@@ -45,7 +46,7 @@ php artisan passport:client --personal
 6. /resources is where our frontend reside
 
 
-## Important commands
+## IMPORTANT COMMANDS
 1. Creating a model
 ```bash
 php artisan make:model Store
@@ -102,7 +103,7 @@ Reset and Ressed
 php artisan migrate:refresh --seed
 ```
 
-# GETTING DATA FROM REQUEST
+## GETTING DATA FROM REQUEST
 Here's a comprehensive example of how to retrieve different types of data from the `$request` object in a Laravel controller, including route parameters, request body (form data), query parameters, and JSON data.
 
 ### Example Controller Method
