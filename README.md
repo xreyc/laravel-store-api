@@ -31,6 +31,15 @@ php artisan migrate
 php artisan db:seed
 ```
 
+## Files
+1. Models are located at app/Models
+2. Migrations are located at database/migrations
+3. Seeders are located at database/seeders
+4. Controllers are located at app/Http/Controllers
+5. Routes are located at routes
+6. /resources is where our frontend reside
+
+
 ## Important commands
 1. Creating a model
 ```bash
