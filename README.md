@@ -80,3 +80,19 @@ php artisan route:list
 ```bash
 php artisan make:seeder UserSeeder
 ```
+
+9. Running seeder
+Running the database seeder (all registered seeder)
+```bash
+php artisan db:seed
+```
+
+Running specific seeder
+```bash
+php artisan db:seed --class=UserSeeder
+```
+
+Reset and Ressed
+```bash
+php artisan migrate:refresh --seed
+```
