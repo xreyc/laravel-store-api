@@ -75,3 +75,8 @@ php artisan install:api
 ```bash
 php artisan route:list
 ```
+
+8. Creating a seeder
+```bash
+php artisan make:seeder UserSeeder
+```
