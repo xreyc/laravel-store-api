@@ -42,9 +42,9 @@ php artisan make:model Store
 php artisan make:migration create_stores_table
 ```
 
-3. To migrate the tables
+3. Create a model and migration in one command
 ```bash
-php artisan migrate
+php artisan make:model ModelName -m
 ```
 
 4. Creating a controller
@@ -52,12 +52,17 @@ php artisan migrate
 php artisan make:controller StoreController
 ```
 
-5. Create a route file example rotues/api.php
+5. To migrate the tables
+```bash
+php artisan migrate
+```
+
+6. Create a route file example rotues/api.php
 ```bash
 php artisan install:api
 ```
 
-6. Get route lsit
+7. Get route list
 ```bash
 php artisan route:list
 ```
