@@ -97,6 +97,7 @@ Route::delete('/delete_by_id/{id}', [StoreController::class, 'destroy']);
 /**
  * If we give a name to specific route we can access it using the route() method
  * example route('nameofroute') this will return the url of the route ex: http://localhost:8000/api/xx
+ * we can use this on view or redirects
  */
 Route::get('/get_all_products', [ProductController::class, 'index'])->name('products.list');
 Route::get('/get_all_product_route', function () {
@@ -104,7 +105,7 @@ Route::get('/get_all_product_route', function () {
 });
 /**
  * http://localhost:8000/api/get_all_products  -> will return all products
- * http://localhost:8000/api/get_all_product_route -> will return http://localhost:8000/api/get_all_products
+ * http://localhost:8000/api/get_all_product_route -> will return {data: "http://localhost:8000/api/get_all_products"}
  */
 
 
