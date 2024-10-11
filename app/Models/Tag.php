@@ -9,13 +9,12 @@ class Tag extends Model
 {
     use HasFactory;
 
-    // Fillable properties for mass assignment
     protected $fillable = [
-        'name', // Name of the tag
+        'name',
     ];
 
     public function products()
     {
-        return $this->belongsToMany(Product::class, 'product_tag');
+        return $this->belongsToMany(Product::class, 'product_tags');
     }
 }

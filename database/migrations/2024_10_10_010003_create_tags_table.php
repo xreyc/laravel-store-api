@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tags', function (Blueprint $table) {
-            $table->id(); // Auto-incrementing ID
-            $table->string('name')->unique(); // Name of the tag, must be unique
-            $table->timestamps(); // Created at and updated at timestamps
+            $table->id();
+            $table->string('name')->unique();
+            $table->timestamps();
         });
     }
 

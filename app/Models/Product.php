@@ -11,14 +11,23 @@ class Product extends Model
 
     // Fillable properties for mass assignment
     protected $fillable = [
+        'store_id',
+        'category_id',
         'name',
         'description',
         'price',
-        'sku',
         'stock',
-        'category_id',
-        'user_id',
     ];
+
+    public function store()
+    {
+        return $this->belongsTo(Store::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 
     public function images()
     {
@@ -32,16 +41,6 @@ class Product extends Model
 
     public function tags()
     {
-        return $this->belongsToMany(Tag::class);
-    }
-
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany(Tag::class, 'product_tags');
     }
 }

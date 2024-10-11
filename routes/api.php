@@ -1,14 +1,23 @@
 <?php
+
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StoreController;
 
-use App\Http\Controllers\Api\ProductController;
-use App\Http\Controllers\Api\ProductPackageController;
-use App\Http\Controllers\Api\OrderController;
-use App\Http\Controllers\Api\PaymentController;
+Route::get('/user', function (Request $request) {
+    return $request->user();
+})->middleware('auth:sanctum');
 
-Route::middleware(['api'])->group(function () {
-    Route::apiResource('products', ProductController::class);
-    Route::apiResource('product-packages', ProductPackageController::class);
-    Route::apiResource('orders', OrderController::class);
-    Route::apiResource('payments', PaymentController::class);
+
+/**
+ * GET /api/stores → index: List all stores.
+ * POST /api/stores → store: Create a new store.
+ * GET /api/stores/{id} → show: Show a specific store.
+ * PUT/PATCH /api/stores/{id} → update: Update a specific store.
+ * DELETE /api/stores/{id} → destroy: Delete a specific store.
+ */
+Route::apiResource('stores', StoreController::class);
+
+Route::get('/test', function () {
+    return response()->json(['message' => 'API is working!']);
 });
