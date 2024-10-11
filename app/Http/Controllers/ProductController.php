@@ -10,7 +10,13 @@ class ProductController extends Controller
     // Display a listing of the products
     public function index()
     {
-        $products = Product::with(['store', 'category', 'images', 'packages', 'tags'])->get(); // Include relationships if needed
+        $products = Product::with([
+            'store', // this will get all store information
+            'category:id,name,description', // specify field to query
+            'images:id,product_id,image_url', // make sure the relationship reference id is included: product_id
+            'packages',
+            'tags'
+        ])->get(); // Include relationships if needed
         return response()->json($products);
     }
 
