@@ -31,6 +31,11 @@ php artisan migrate
 php artisan db:seed
 ```
 
+6. Create laravel/passport client key
+```bash
+php artisan passport:client --personal
+```
+
 ## Files
 1. Models are located at app/Models
 2. Migrations are located at database/migrations
